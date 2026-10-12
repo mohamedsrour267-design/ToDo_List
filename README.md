@@ -73,7 +73,7 @@ Stores tasks belonging to registered users.
 
 ### 1. User Registration
 
-![Registration Page]()
+![Registration Page](Screenshot 2026-10-12 112610.png)
 
 Users can create an account by entering their name, email, password, and password confirmation.
 
