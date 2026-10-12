@@ -83,7 +83,7 @@ Users can create an account by entering their name, email, password, and passwor
 
 Registered users can log in using their email and password.
 
-## 3. Add New Task
+## 3. Responsive Design
 
 ![My To-Do List](Screenshot%202026-10-12%20113525.png)
 
