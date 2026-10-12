@@ -79,7 +79,7 @@ Users can create an account by entering their name, email, password, and passwor
 
 ### 2. Login Page
 
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/Screenshot%202026-10-12%20112610.png)
 
 Registered users can log in using their email and password.
 
