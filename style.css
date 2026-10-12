@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px 16px;
+    background: #f3f5fb;
+    color: #202944;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.subtitle {
+    color: #707991;
+    line-height: 1.6;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    margin: 35px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(30, 45, 80, 0.08);
+}
+
+form label {
+    display: block;
+    margin: 16px 0 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #d7ddeb;
+    border-radius: 8px;
+    background: white;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: 2px solid #9eafff;
+    border-color: #5268d9;
+}
+
+button,
+.add-button {
+    display: inline-block;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #4c60d5;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.auth-card form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover,
+.add-button:hover {
+    opacity: 0.9;
+}
+
+.switch-link {
+    margin-top: 24px;
+    text-align: center;
+    color: #707991;
+    font-size: 14px;
+}
+
+a {
+    color: #4c60d5;
+}
+
+.error {
+    padding: 10px 12px;
+    border-radius: 7px;
+    background: #fff0f0;
+    color: #b42318;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.todo-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.top-bar form {
+    flex-shrink: 0;
+}
+
+.secondary-button {
+    background: #e9edff;
+    color: #3448b7;
+}
+
+.delete-button {
+    background: #ffe8e8;
+    color: #b42318;
+}
+
+.add-button {
+    margin-bottom: 22px;
+}
+
+.task-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.task-card,
+.empty-state {
+    padding: 22px;
+    background: white;
+    border: 1px solid #e6eaf3;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(30, 45, 80, 0.04);
+}
+
+.task-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-heading h2 {
+    margin: 0;
+}
+
+.status {
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.done {
+    background: #e0f7e9;
+    color: #167443;
+}
+
+.pending {
+    background: #fff3d6;
+    color: #8a5b00;
+}
+
+.completed {
+    color: #777f90;
+    text-decoration: line-through;
+}
+
+.task-date {
+    margin: 12px 0;
+    color: #7c8599;
+    font-size: 12px;
+}
+
+.task-card form button {
+    margin-top: 12px;
+}
+
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.task-actions form button {
+    margin-top: 0;
+}
+
+.empty-state {
+    margin-top: 25px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 18px 12px;
+    }
+
+    .auth-card {
+        margin: 15px auto;
+        padding: 22px 18px;
+    }
+
+    .top-bar {
+        align-items: flex-start;
+    }
+
+    .top-bar h1 {
+        font-size: 23px;
+    }
+
+    .task-card {
+        padding: 16px;
+    }
+}
+/* ================================
+   Dark Mode
+================================ */
+
+/* ================================
+   Dark Mode
+================================ */
+
+body.dark-mode {
+    background: #121826;
+    color: #e5e7eb;
+}
+
+/* Main cards */
+body.dark-mode .auth-card,
+body.dark-mode .task-card,
+body.dark-mode .empty-state {
+    background: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings and text */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode label,
+body.dark-mode p {
+    color: #e5e7eb;
+}
+
+body.dark-mode .subtitle,
+body.dark-mode .switch-link,
+body.dark-mode .task-date {
+    color: #aab4c5;
+}
+
+/* Input fields */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #111827;
+    color: #f9fafb;
+    border: 1px solid #4b5563;
+}
+
+body.dark-mode input::placeholder {
+    color: #9ca3af;
+}
+
+/* Links */
+body.dark-mode a {
+    color: #a5b4fc;
+}
+
+/* Main buttons */
+body.dark-mode button,
+body.dark-mode .add-button {
+    background: #6366f1;
+    color: #ffffff;
+}
+
+/* Secondary buttons */
+body.dark-mode .secondary-button {
+    background: #374151;
+    color: #e5e7eb;
+}
+
+/* Delete button */
+body.dark-mode .delete-button {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+/* Task status */
+body.dark-mode .done {
+    background: #14532d;
+    color: #bbf7d0;
+}
+
+body.dark-mode .pending {
+    background: #713f12;
+    color: #fef08a;
+}
+
+body.dark-mode .completed {
+    color: #9ca3af;
+}
+
+/* Error messages */
+body.dark-mode .error {
+    background: #451a1a;
+    color: #fca5a5;
+}
+
+/* Empty state */
+body.dark-mode .empty-state p {
+    color: #aab4c5;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #4c60d5;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Hover effect */
+body.dark-mode button:hover,
+body.dark-mode .add-button:hover {
+    opacity: 0.85;
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    body.dark-mode .auth-card {
+        padding: 22px 18px;
+    }
+}
+/* Validation errors in Dark Mode */
+body.dark-mode .client-errors .error {
+    background: #451a1a;
+    color: #fca5a5;
+    border: 1px solid #7f1d1d;
+}
