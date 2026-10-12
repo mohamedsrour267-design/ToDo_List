@@ -1,92 +1,109 @@
-# Login & To-Do Application
+# 📝 Login & To-Do Application
 
-A web-based **Login and To-Do Management System** developed using Flask and MySQL for Lab 2 of the Introduction to Database Systems course at Alexandria National University.
+A web-based Login and To-Do application developed using Python, Flask, MySQL, HTML, CSS, and JavaScript as part of **Introduction to Database Systems — Lab 2**.
 
-The application provides secure user authentication and allows each user to manage their own personal tasks through a simple, responsive interface.
+The application allows users to create accounts, securely log in, and manage their personal tasks through a simple and responsive interface.
 
----
 
-## 👥 1. Team Members
+- **Name:** Mohamed Mahmoud
+- **ID:** 2304096
+- **Contribution:** Database design, Flask backend, user authentication, and To-Do list functionality.
 
-| Name | Student ID | Contributions |
-|---|---|---|
-| Rewan Mahmoud Mohamed | 2304098 | Database Design, Flask Backend, Authentication, and To-Do List |
+## ✨ Features
 
----
+- **User Registration:** Create a new account using a name, email, and password.
+- **User Login:** Authenticate users using their email and password.
+- **Password Security:** Store passwords as bcrypt hashes instead of plain text.
+- **Personal To-Do List:** Each user can access their own tasks.
+- **Add Tasks:** Create new tasks with title validation.
+- **Edit Tasks:** Update existing task titles.
+- **Mark Tasks as Done:** Change tasks between completed and pending.
+- **Delete Tasks:** Remove tasks when they are no longer needed.
+- **Input Validation:** Validate registration, login, and task forms on both the client and server sides.
+- **Protected Pages:** Require authentication to access the To-Do list and task management routes.
+- **Dark Mode:** Switch between light and dark themes.
+- **Responsive Design:** Adapt the interface to different screen sizes.
+- **Database Integration:** Store user accounts and tasks in MySQL.
 
-## 🛠️ 2. Technologies Used
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
 |---|---|
-| Python | Backend programming |
-| Flask | Web application framework |
-| HTML5 | Page structure |
-| CSS3 | Styling and responsive design |
-| JavaScript | Client-side interactions and theme switching |
-| MySQL | Database management |
-| PyMySQL | Connecting Python to MySQL |
+| Python | Main programming language |
+| Flask | Web framework and backend routing |
+| MySQL | Relational database |
+| PyMySQL | Connect Python to MySQL |
 | bcrypt | Password hashing |
-| Flask Sessions | User authentication state |
-| python-dotenv | Environment variable configuration |
-| Git & GitHub | Version control and project hosting |
+| HTML5 | Page structure |
+| CSS3 | Styling and responsive layout |
+| JavaScript | Client-side form validation and dark mode |
+| python-dotenv | Load configuration from environment variables |
 
----
+## 🗄️ Database Design
 
-## ✨ 3. Implemented Features
+The application uses a MySQL database named `registration` with two tables.
 
-- **User Registration:** Create a new account with input validation.
-- **Login & Logout:** Authenticate users and manage their sessions.
-- **Duplicate Email Handling:** Prevent registration with an already registered email.
-- **Password Security:** Hash passwords using bcrypt instead of storing them in plaintext.
-- **Protected Pages:** Restrict access to authenticated users.
-- **Personal To-Do Lists:** Keep each user's tasks associated with their account.
-- **Add Tasks:** Create new to-do items.
-- **Edit Tasks:** Update existing task titles.
-- **Task Completion:** Mark tasks as completed or incomplete.
-- **Delete Tasks:** Remove tasks with confirmation.
-- **Input Validation:** Validate user input on both the client and server sides.
-- **Task Title Limit:** Restrict task titles to a maximum of 200 characters.
-- **SQL Injection Protection:** Use parameterized SQL queries.
-- **Responsive Design:** Support different screen sizes.
-- **Dark Mode & Light Mode:** Switch between visual themes.
+### 1. Users Table
 
----
+Stores registered user information.
 
-## 📁 4. Project Structure
+| Column | Description |
+|---|---|
+| `user_id` | Primary key; automatically generated |
+| `email` | Unique user email |
+| `name` | User's name |
+| `password_hash` | Bcrypt password hash |
+| `registration_date` | Account creation timestamp |
 
-```text
-My_Todo_list/
-│
-├── app.py
-├── schema.sql
-├── env.example
-├── .gitignore
-├── README.md
-│
-├── login.html
-├── register.html
-├── todos.html
-│
-├── style.css
-├── theme.js
-│
-├── Screenshot 2026-10-12 121621.png
-├── Screenshot 2026-10-12 121837.png
-├── Screenshot 2026-10-12 121945.png
-└── Screenshot 2026-10-12 122026.png
-```
+### 2. To-Dos Table
 
----
+Stores tasks belonging to registered users.
 
-## 🚀 5. Installation & Setup
+| Column | Description |
+|---|---|
+| `todo_id` | Primary key; automatically generated |
+| `user_id` | Foreign key referencing `users.user_id` |
+| `title` | Task title |
+| `is_done` | Task completion status |
+| `created_at` | Task creation timestamp |
+
+**Relationship:** One user can have multiple tasks. The `user_id` foreign key connects each task to its owner.
+
+## 📸 Screenshots
+
+### 1. User Registration
+
+![Registration Page]()
+
+Users can create an account by entering their name, email, password, and password confirmation.
+
+### 2. Login Page
+
+![Login Page](screenshots/login.png)
+
+Registered users can log in using their email and password.
+
+### 3. My To-Do List
+
+![To-Do List](screenshots/todo-list.png)
+
+Users can view their tasks, edit task titles, mark tasks as completed, and delete tasks.
+
+### 4. Add New Task
+
+![Add Task Page](screenshots/add-task.png)
+
+Users can add new tasks to their personal to-do list.
+
+## ⚙️ Installation and Setup
 
 ### Prerequisites
 
-Make sure the following software is installed:
+Make sure you have installed:
 
-- Python
+- Python 3
 - MySQL Server
-- MySQL Workbench or another MySQL client
+- Git (optional)
 
 ### Step 1: Clone the Repository
 
@@ -95,135 +112,141 @@ git clone https://github.com/rewansrour123/My_Todo_list.git
 cd My_Todo_list
 ```
 
-Alternatively, download the repository as a ZIP file from GitHub and extract it.
+Alternatively, download the repository and open its folder in your terminal.
 
-### Step 2: Install Dependencies
-
-Install the required Python packages:
+### Step 2: Create a Virtual Environment
 
 ```bash
-pip install flask pymysql bcrypt python-dotenv
+python -m venv venv
 ```
 
-### Step 3: Set Up the Database
+Activate it on Windows:
 
-1. Open MySQL Workbench.
-2. Open the `schema.sql` file from the project directory.
-3. Execute the SQL script to create the database and tables.
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+### Step 3: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
 
 ### Step 4: Configure Environment Variables
 
-1. Create a copy of `env.example`.
-2. Rename the copy to `.env`.
-3. Enter your local MySQL credentials and a strong, randomly generated Flask secret key.
+Create a `.env` file in the project root directory using `.env.example` as a template.
 
-**Security note:** Never commit your actual `.env` file, database password, or secret key to GitHub.
+Example configuration:
 
-### Step 5: Run the Application
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=registration
+DB_PORT=3306
+SECRET_KEY=replace_with_a_random_secret_key
+```
 
-Start the Flask application from the project directory:
+Replace `your_mysql_password` with your actual MySQL password and use a secure, randomly generated secret key.
+
+**Security note:** Never upload your real `.env` file or database credentials to GitHub.
+
+### Step 5: Create the Database
+
+Open MySQL Workbench or your MySQL terminal and execute the following SQL script:
+
+```sql
+DROP DATABASE IF EXISTS registration;
+
+CREATE DATABASE registration;
+
+USE registration;
+
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    registration_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id),
+    UNIQUE (email)
+);
+
+CREATE TABLE todos (
+    todo_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    is_done TINYINT(1) NOT NULL DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (todo_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+```
+
+**Important:** The script drops the existing `registration` database before recreating it. Back up any important data before executing it.
+
+### Step 6: Run the Application
+
+From the project root directory, run:
 
 ```bash
 python app.py
 ```
 
-### Step 6: Open the Website
+Open the following address in your browser:
 
-Open the registration page in your browser:
+http://127.0.0.1:5000/
 
-**http://127.0.0.1:5000/register**
+New visitors are redirected to the registration page. After registration or login, users can access their personal To-Do list.
 
-Create an account, log in, and start managing your tasks.
+## 🔐 Security and Validation
 
----
+- Passwords are hashed using bcrypt before being stored in the database.
+- Parameterized SQL queries are used to reduce SQL injection risks.
+- Protected routes require a logged-in session.
+- Task update and deletion queries check that the task belongs to the logged-in user.
+- Form inputs are validated in JavaScript and Flask.
+- Environment variables are used for database settings and the Flask secret key.
 
-## 📸 6. Application Screenshots
+## 📂 Project Structure
 
-### 1. Registration Page
+```text
+My_Todo_list/
+├── app.py                 # Flask application and routes
+├── db.py                  # MySQL connection
+├── requirements.txt       # Python dependencies
+├── .env.example           # Environment variable template
+├── .gitignore              # Excluded files
+├── README.md               # Project documentation
+├── templates/
+│   ├── register.html       # Registration page
+│   ├── login.html          # Login page
+│   ├── todos.html          # Personal task list
+│   └── add_todo.html       # Add task page
+├── static/
+│   ├── style.css           # Application styling
+│   └── validation.js       # Client-side validation
+└── screenshots/            # Application screenshots
+```
 
-The registration page allows new users to create accounts and displays validation feedback when applicable.
+## 🎯 Learning Objectives
 
-![Registration Page](Screenshot%202026-10-12%20121621.png)
+This project demonstrates the practical application of:
 
-### 2. To-Do List Management
+- Relational database design and SQL table creation.
+- Primary keys, foreign keys, and unique constraints.
+- Connecting a Flask application to a MySQL database.
+- Implementing user registration, login, and session management.
+- Performing CRUD operations: Create, Read, Update, and Delete.
+- Validating user input and handling errors.
+- Building a responsive web interface.
 
-The main task management page allows authenticated users to add, edit, complete, and delete their personal tasks.
+## 👨‍💻 Author
 
-![To-Do List Management](Screenshot%202026-10-12%20121945.png)
-
-### 3. Login Page
-
-The login page allows existing users to access their accounts.
-
-![Login Page](Screenshot%202026-10-12%20121837.png)
-
-### 4. Responsive Design
-
-The responsive layout demonstrates how the application appears in a phone-sized browser viewport.
-
-![Responsive Design](Screenshot%202026-10-12%20122026.png)
-
----
-
-## 🗄️ 7. Database & Security Questions
-
-### (a) Why do UPDATE and DELETE queries contain `AND user_id = %s`?
-
-This condition ensures that users can modify or delete only their own tasks. Without it, a user might access another user's task by supplying its ID. Including the user ID in the query adds an important authorization check.
-
-### (b) What happens if a to-do references a nonexistent `user_id`?
-
-If a foreign key constraint is defined and enforced, MySQL rejects the operation because the referenced user does not exist. This preserves referential integrity between the users and todos tables.
-
-### (c) Why store a password hash instead of the original password?
-
-Storing a password hash prevents the application from keeping passwords in plaintext. bcrypt uses a salt and a computationally expensive hashing process, making password-guessing attacks more difficult.
-
-### (d) Why validate an empty name when the database column is `NOT NULL`?
-
-The `NOT NULL` constraint prevents NULL values, but it does not necessarily prevent empty strings or strings containing only spaces. Application-level validation is required to reject these inputs.
-
-### (e) Why use both client-side and server-side validation?
-
-Client-side validation provides immediate feedback and improves the user experience. Server-side validation is essential because browser checks can be bypassed and requests can be sent directly to the backend.
-
-### (f) Why use parameterized SQL queries?
-
-Parameterized SQL queries separate SQL commands from user-provided values, helping prevent SQL injection attacks.
+**Mohamed Mahmoud**  
+Introduction to Database Systems — Lab 2  
+Faculty of Engineering, Alexandria National University
 
 ---
 
-## 🔐 8. Security Considerations
-
-The project applies several basic security practices:
-
-- Password hashing with bcrypt.
-- Session-based authentication.
-- User-specific task ownership checks.
-- Parameterized database queries.
-- Server-side input validation.
-- Environment variables for sensitive configuration.
-
-These practices help protect user accounts and task data. Production deployment would require additional security configuration and testing.
-
----
-
-## 🎓 9. Course Information
-
-- **University:** Alexandria National University
-- **Faculty:** Faculty of Engineering
-- **Course:** Introduction to Database Systems
-- **Lab:** Lab 2 — Login & To-Do Application
-- **Semester:** Fall 2026
-
----
-
-## 👩‍💻 Author
-
-**Rewan Mahmoud Mohamed**
-
-GitHub: [@rewansrour123](https://github.com/rewansrour123)
-
----
-
-*Developed as part of the Introduction to Database Systems course — Fall 2026.*
+*Developed for educational purposes as part of the Fall 2026 Database Systems Lab.*
