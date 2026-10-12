@@ -69,29 +69,29 @@ Stores tasks belonging to registered users.
 
 **Relationship:** One user can have multiple tasks. The `user_id` foreign key connects each task to its owner.
 
-## 📸 Screenshots
+## 📸## 4. Screenshots
 
-### 1. User Registration
+## 1. User Registration
 
-![Registration Page](Screenshot 2026-10-12 112610.png)
+![User Registration](Screenshot%202026-10-12%20112610.png)
 
 Users can create an account by entering their name, email, password, and password confirmation.
 
-### 2. Login Page
+## 2. Login Page
 
-![Login Page](screenshots/Screenshot%202026-10-12%20112610.png)
+![Login Page](Screenshot%202026-10-12%20112958.png)
 
 Registered users can log in using their email and password.
 
-### 3. My To-Do List
+## 3. My To-Do List
 
-![To-Do List](screenshots/todo-list.png)
+![My To-Do List](Screenshot%202026-10-12%20113525.png)
 
 Users can view their tasks, edit task titles, mark tasks as completed, and delete tasks.
 
-### 4. Add New Task
+## 4. Add New Task
 
-![Add Task Page](screenshots/add-task.png)
+![Add New Task](Screenshot%202026-10-12%20125722.png)
 
 Users can add new tasks to their personal to-do list.
 
